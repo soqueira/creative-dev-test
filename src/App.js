@@ -24,28 +24,64 @@ class App extends Component {
     });
   }
   setNavBar(n) {
+    this.teste();
+
     const boj = [
-      { num: "s1", style: { color: "#ffa0a0" }, svg: "circle" },
-      { num: "s2", style: { color: "#ffc74f" }, svg: "square" },
-      { num: "s3", style: { color: "#9cd6f0" }, svg: "triangle" }
+      {
+        id: 1,
+        num: "s1",
+        style: { color: "#ffa0a0"},
+        svg: "circle"
+      },
+      {
+        id: 2,
+        num: "s2",
+        style: { color: "#ffc74f"},
+        svg: "square"
+      },
+      {
+        id: 3,
+        num: "s3",
+        style: { color: "#9cd6f0"},
+        svg: "triangle"
+      }
     ];
-    // get the from the parameter the current viewing
+    // get parameter the current viewing
     let el = document.getElementsByClassName(n)[0];
     let svg;
-    boj.forEach(item => {
+    boj.forEach((item) => {
       if (el) {
-      svg = document.getElementsByClassName(item.svg)[0];
+        svg = document.getElementsByClassName(item.svg)[0];
         if (el.className === item.num) {
           el.style.color = item.style.color;
           svg.classList.add("svg-active");
         } else {
-          let others = document.getElementsByClassName(item.num)[0];
-          others.style.color = "#fff";
           svg.classList.remove("svg-active");
         }
       }
     });
     this.setOffset(n);
+  }
+  teste() {
+    const colors = [
+      { color: "#00347D", view: "s1" },
+      { color: "#E93800", view: "s2" },
+      { color: "#8A1935", view: "s3" }
+    ];
+    let linkColor;
+    let cView = this.state.currentView;
+    colors.forEach((item) => {
+      let s1 = document.getElementsByClassName("s1")[0];
+      let s2 = document.getElementsByClassName("s2")[0];
+      let s3 = document.getElementsByClassName("s3")[0];
+
+      if (item.view === cView) {
+        linkColor = item.color;
+        s1.style.color = linkColor;
+        s2.style.color = linkColor;
+        s3.style.color = linkColor;
+      }
+    });
   }
   setOffset(n) {
     if (n) {

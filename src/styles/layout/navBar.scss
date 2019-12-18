@@ -19,16 +19,20 @@ nav {
     margin: 0;
     padding: 0;
     height: 100%;
-    a {
-      padding: 40px;
-      text-decoration: none;
-      color: #fff;
-      font-size: 25px;
-      outline: none;
-      z-index: 2;
-      position: relative;
-      transition-delay: 0.3s;
-      transition: 0.3s ease-in;
+    li {
+      margin: 0;
+      padding: 0;
+      a {
+        padding: 40px;
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+        outline: none;
+        z-index: 2;
+        position: relative;
+        transition-delay: 0.3s;
+        transition: 0.3s ease-in;
+      }
     }
   }
   span {
@@ -41,20 +45,22 @@ nav {
     transition: 0.7s cubic-bezier(0.74, -0.05, 0, 1.75);
     @include center;
     svg {
-      width: 100%;
-      height: 100%;
       visibility: hidden;
-      opacity: .3;
+      opacity: 0.3;
       position: absolute;
-      transform: scale(0);
+      transform: rotate(350deg) scale(0);
       // remove the scale transform and remove the transition comment bellow to another transition
       // transition: opacity .5s ease-in-out .2s;
-      transition: .5s ease-in-out;
+      transition: 0.5s ease-in-out;
     }
     .svg-active {
       visibility: visible;
       opacity: 1;
       transform: rotate(360deg) scale(1);
+    }
+    .triangle {
+      right: -2px;
+      top: -12px;
     }
   }
 }

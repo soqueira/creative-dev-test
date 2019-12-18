@@ -25,14 +25,14 @@ const navBar = ({getAnchor, anchors, setNavBar, currentView}) => {
             </g>
           </svg>
           <svg className="square" width="118px" height="118px" viewBox="0 0 118 118">
-            <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+            <g id="Page-2" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
               <g id="Slide_02" transform="translate(-1227.000000, -404.000000)" fill="#E93800">
                 <rect id="square" transform="translate(1286.000000, 463.000000) rotate(-15.000000) translate(-1286.000000, -463.000000) " x="1238" y="415" width="96" height="96"></rect>
               </g>
             </g>
         </svg>
         <svg className="triangle" width="118px" height="114px" viewBox="0 0 118 114">
-          <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
+          <g id="Page-3" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
             <g id="Slide_03" transform="translate(-1221.000000, -698.000000)" fill="#8A1935">
               <polygon id="triangle" transform="translate(1293.375000, 778.875000) rotate(-315.000000) translate(-1293.375000, -778.875000) " points="1238.39745 720.185137 1348.35255 770.036165 1249.71116 837.564863"></polygon>
            </g>

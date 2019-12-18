@@ -16,6 +16,8 @@ const fullPage = ({anchors, colors}) => (
     // Scrolling
     lazyLoading = {true}
     easingcss3 = {'cubic-bezier(.58,-0.29,.39,1.36)'}
+    loopBottom = {true}
+    loopTop = {true}
     render={() => {
     
       return (
