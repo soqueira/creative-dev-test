@@ -1,36 +1,79 @@
-import React from 'react';
-import ReactFullpage from '@fullpage/react-fullpage';
+import React from "react";
+import ReactFullpage from "@fullpage/react-fullpage";
+import Slide from "./Slide";
 
-const fullPage = ({anchors, colors}) => (
-  <ReactFullpage
-    //fullpage options
+const slides = [
+  {
+    slide1: [
+      {
+        h1: "Creative people live longer.",
+        p:
+          "Due to their openness, creative minds tend to live longer, and may even get more creative with age. Creative people react to stress, often seeing obstacles as something to be overcome rather than a barrier which can’t be breached.",
+        color: '#00347D',
+        img: 'IMG_01-small.jpg',
+        top: '0em',
+      },
+    ],
+    slide2: [
+      {
+        h1: 'Positivity makes more creative.',
+        p: 
+          "While it’s often thought that a case of the blues will get the creative juices flowing, it turns out happiness and motivation actually bring out the highest levels of creative activity.",
+        color: '#E93800',
+        img: 'IMG_02-small.jpg',
+        top: '18em',
+      }
+    ],
+    slide3: [
+      {
+        h1: "Creativity is additive.",
+        p:
+        "Everyday creative activity is crucial for creative behaviour. Similar to the notion that practice makes perfect, exercising the creative muscles in your brain is known to boost creative accomplishment.",
+        color: '#8A1935',
+        img: 'IMG_03-small.jpg',
+        top: '35em',
+      }
+    ]
+  }
+];
+class fullPage extends React.Component {
+  render() {
+    return (
+      <ReactFullpage
+        //fullpage options
 
-    // Navigation
-    anchors={anchors}
-    // Design
-    sectionsColor = {colors}
-    // Accessibility
-	  keyboardScrolling = {true}
-	  animateAnchor = {true}
-	  recordHistory = {true}
-    // Scrolling
-    lazyLoading = {true}
-    easingcss3 = {'cubic-bezier(.58,-0.29,.39,1.36)'}
-    loopBottom = {true}
-    loopTop = {true}
-    render={() => {
-    
-      return (
-        <ReactFullpage.Wrapper>
-          <section className="section">
-          </section>
-          <section className="section">
-          </section>
-          <section className="section">
-          </section>
-        </ReactFullpage.Wrapper>
-      );
-    }}
-  />
-);
+        // Navigation
+        anchors={this.props.anchors}
+        // Design
+        sectionsColor={this.props.colors}
+        // Accessibility
+        keyboardScrolling={true}
+        animateAnchor={true}
+        recordHistory={true}
+        // Scrolling
+        scrollingSpeed={1000}
+        lazyLoading={true}
+        scrollBar={true}
+        easingcss3={"cubic-bezier(1, 0, 1, 1)"}
+        render={() => {
+          return (
+            <ReactFullpage.Wrapper>
+              <section className="section">
+                <Slide slides={slides[0].slide1}></Slide>
+              </section>
+              <section className="section">
+                <Slide slides={slides[0].slide2}></Slide>
+              </section>
+              <section className="section">
+                <Slide slides={slides[0].slide3}></Slide>
+              </section>
+            </ReactFullpage.Wrapper>
+          );
+        }}
+      />
+    );
+  }
+}
+// const fullPage = ({anchors, colors}) => (
+// );
 export default fullPage;

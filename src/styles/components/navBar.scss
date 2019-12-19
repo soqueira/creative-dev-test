@@ -1,3 +1,4 @@
+@import '../layout/queries.scss';
 @mixin center {
   display: flex;
   align-items: center;
@@ -11,6 +12,7 @@ nav {
   right: 0;
   z-index: 10;
   @include center;
+
   ul {
     @include center;
     justify-content: space-around;
@@ -46,12 +48,14 @@ nav {
     @include center;
     svg {
       visibility: hidden;
-      opacity: 0.3;
+      opacity: 0;
       position: absolute;
-      transform: rotate(350deg) scale(0);
-      // remove the scale transform and remove the transition comment bellow to another transition
-      // transition: opacity .5s ease-in-out .2s;
-      transition: 0.5s ease-in-out;
+      transform: rotate(0deg) scale(0);
+      transition: 0.5s ease .1s;
+      @include for-phone-only {
+        width: 70px;
+        height: 70px;
+      }
     }
     .svg-active {
       visibility: visible;
@@ -61,6 +65,10 @@ nav {
     .triangle {
       right: -2px;
       top: -12px;
+      @include for-phone-only {
+        right: 20px;
+        top: 9px;
+      }
     }
   }
 }

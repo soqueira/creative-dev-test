@@ -8,12 +8,10 @@ class App extends Component {
     this.state = {
       anchors: ["s1", "s2", "s3"],
       colors: ["#ffa0a0", "#ffc74f", "#9cd6f0"],
-      currentView: null
+      currentView: null,
     };
-    this.getAnchor = this.getAnchor.bind(this);
-    this.setNavBar = this.setNavBar.bind(this);
   }
-  getAnchor() {
+  getAnchor = () => {
     // get from body a fp-viewing-sN class every .3ms
     const vpView = document.getElementsByTagName("body");
     const currentView = vpView["0"].className;
@@ -23,8 +21,8 @@ class App extends Component {
       currentView: anchorView[2]
     });
   }
-  setNavBar(n) {
-    this.teste();
+  setNavBar = (n) => {
+    this.setLinkColor();
 
     const boj = [
       {
@@ -62,7 +60,7 @@ class App extends Component {
     });
     this.setOffset(n);
   }
-  teste() {
+  setLinkColor = () => {
     const colors = [
       { color: "#00347D", view: "s1" },
       { color: "#E93800", view: "s2" },

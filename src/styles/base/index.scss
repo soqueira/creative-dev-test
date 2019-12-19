@@ -1,4 +1,8 @@
-@import '../base/body.scss';
-@import '../layout/navBar.scss';
-@import '../layout/fpSections.scss';
-@import '../module/font-face.scss';
+@import './scrollBar.scss';
+@import './body.scss';
+@import '../components/fpSections.scss';
+@import '../components/navBar.scss';
+@import '../components/slides.scss';
+@import '../settings/font-face.scss';
+@import '../settings/colors.scss';
+@import '../layout/queries.scss';
