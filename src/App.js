@@ -80,12 +80,14 @@ class App extends Component {
       }
     });
   };
+  // TODO: fix the top bar for tablet large phones and tablet
   setOffset(n) {
     if (n) {
       let el = document.getElementsByClassName(n)[0];
       let span = document.getElementsByTagName("span")[0];
       // less than 495px wide from the el to left is mobile and the navbar is on top
-      if (el.getBoundingClientRect().left <= 495) {
+      console.log(el.getBoundingClientRect().left)
+      if (el.getBoundingClientRect().left <= 204) {
         span.style.left = el.getBoundingClientRect().left + "px";
         span.style.top = el.getBoundingClientRect().bottom + "px";
       } else {

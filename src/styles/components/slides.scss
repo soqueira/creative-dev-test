@@ -8,11 +8,16 @@
   width: 80%;
   height: 100%;
   @include center;
+  @include for-phone-only {
+    align-items: flex-end;
+    width: 100%;
+  }
   .s-container {
     width: 100%;
     margin-left: 10%;
     @include for-phone-only {
-      margin: 15px;
+      height: 80%;
+      margin: 0% 10% 0% 10%;
     }
     .s-text {
       width: 100%;
@@ -35,6 +40,7 @@
         margin-top: 5%;
         @include for-phone-only {
           width: 100%;
+          margin-top: 100%;
         }
       }
     }
@@ -47,8 +53,8 @@
     left: 45%;
     z-index: 1;
     @include for-phone-only {
-      width: 50%;
-      height: 35%;
+      width: 200px;
+      height: 42%;
       top: 27%;
       left: 22%;
     }
@@ -65,11 +71,30 @@
   }
   .s-image-3 {
     transform: rotate(4deg);
+    @include for-phone-only{
+      top: 17%;
+    }
+  }
+}
+.s-text-1{
+  @include for-phone-only{
+    top: 2em;
   }
 }
 .s-text-2 {
   top: 27em;
+  @include for-phone-only{
+    top: 26em;
+  }
 }
 .s-text-3 {
   top: 53em;
+  @include for-phone-only{
+    top: 52em;
+  }
+  p{
+    @include for-phone-only{
+      margin-top: 75% !important;
+    }
+  }
 }
