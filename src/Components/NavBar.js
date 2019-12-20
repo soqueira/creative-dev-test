@@ -10,7 +10,7 @@ const navBar = ({getAnchor, anchors, setNavBar, currentView}) => {
     let itens;
     itens = anchors.map((view, index) => {
         return (
-            <li key={index}><a className={view} href={'#' + view} >{index + 1}</a></li>
+            <li key={index}><a className={view + ' link'} href={'#' + view} >{index + 1}</a></li>
         );
     });
   return (

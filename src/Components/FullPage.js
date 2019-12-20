@@ -11,7 +11,8 @@ const slides = [
           "Due to their openness, creative minds tend to live longer, and may even get more creative with age. Creative people react to stress, often seeing obstacles as something to be overcome rather than a barrier which can’t be breached.",
         color: '#00347D',
         img: 'IMG_01-small.jpg',
-        top: '0em',
+        // top: '0em',
+        id: 1
       },
     ],
     slide2: [
@@ -21,7 +22,8 @@ const slides = [
           "While it’s often thought that a case of the blues will get the creative juices flowing, it turns out happiness and motivation actually bring out the highest levels of creative activity.",
         color: '#E93800',
         img: 'IMG_02-small.jpg',
-        top: '18em',
+        // top: '25em',
+        id: 2
       }
     ],
     slide3: [
@@ -31,7 +33,8 @@ const slides = [
         "Everyday creative activity is crucial for creative behaviour. Similar to the notion that practice makes perfect, exercising the creative muscles in your brain is known to boost creative accomplishment.",
         color: '#8A1935',
         img: 'IMG_03-small.jpg',
-        top: '35em',
+        // top: '52em
+        id: 3,
       }
     ]
   }

@@ -8,7 +8,7 @@ class App extends Component {
     this.state = {
       anchors: ["s1", "s2", "s3"],
       colors: ["#ffa0a0", "#ffc74f", "#9cd6f0"],
-      currentView: null,
+      currentView: null
     };
   }
   getAnchor = () => {
@@ -20,38 +20,40 @@ class App extends Component {
       // set same string as current anchor array
       currentView: anchorView[2]
     });
-  }
-  setNavBar = (n) => {
+  };
+  setNavBar = n => {
     this.setLinkColor();
 
     const boj = [
       {
         id: 1,
         num: "s1",
-        style: { color: "#ffa0a0"},
+        style: { color: "#ffa0a0" },
         svg: "circle"
       },
       {
         id: 2,
         num: "s2",
-        style: { color: "#ffc74f"},
+        style: { color: "#ffc74f" },
         svg: "square"
       },
       {
         id: 3,
         num: "s3",
-        style: { color: "#9cd6f0"},
+        style: { color: "#9cd6f0" },
         svg: "triangle"
       }
     ];
     // get parameter the current viewing
-    let el = document.getElementsByClassName(n)[0];
+    let link = document.getElementsByClassName(n)[0];
     let svg;
-    boj.forEach((item) => {
-      if (el) {
+    boj.forEach(item => {
+      if (link) {
+        // first className of link element
+        let linkClassName = link.classList[0];
         svg = document.getElementsByClassName(item.svg)[0];
-        if (el.className === item.num) {
-          el.style.color = item.style.color;
+        if (linkClassName === item.num) {
+          link.style.color = item.style.color;
           svg.classList.add("svg-active");
         } else {
           svg.classList.remove("svg-active");
@@ -59,7 +61,7 @@ class App extends Component {
       }
     });
     this.setOffset(n);
-  }
+  };
   setLinkColor = () => {
     const colors = [
       { color: "#00347D", view: "s1" },
@@ -68,24 +70,28 @@ class App extends Component {
     ];
     let linkColor;
     let cView = this.state.currentView;
-    colors.forEach((item) => {
-      let s1 = document.getElementsByClassName("s1")[0];
-      let s2 = document.getElementsByClassName("s2")[0];
-      let s3 = document.getElementsByClassName("s3")[0];
-
+    colors.forEach(item => {
+      let link = document.querySelectorAll(".link");
       if (item.view === cView) {
         linkColor = item.color;
-        s1.style.color = linkColor;
-        s2.style.color = linkColor;
-        s3.style.color = linkColor;
+        for (let i = 0; i < link.length; i++) {
+          link[i].style.color = linkColor;
+        }
       }
     });
-  }
+  };
   setOffset(n) {
     if (n) {
       let el = document.getElementsByClassName(n)[0];
       let span = document.getElementsByTagName("span")[0];
-      span.style.top = el.getBoundingClientRect().bottom + "px";
+      // less than 495px wide from the el to left is mobile and the navbar is on top
+      if (el.getBoundingClientRect().left <= 495) {
+        span.style.left = el.getBoundingClientRect().left + "px";
+        span.style.top = el.getBoundingClientRect().bottom + "px";
+      } else {
+        span.style.left = "inherit";
+        span.style.top = el.getBoundingClientRect().bottom + "px";
+      }
     }
   }
   render() {
