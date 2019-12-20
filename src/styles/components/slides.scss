@@ -12,6 +12,9 @@
     align-items: flex-end;
     width: 100%;
   }
+  @include for-tablet-portrait-up{
+    width: 90%;
+  }
   .s-container {
     width: 100%;
     margin-left: 10%;
@@ -29,6 +32,11 @@
         flex-direction: column;
         justify-content: space-between;
       }
+      @include for-tablet-portrait-up{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
       h1 {
         font-size: 90px;
         font-weight: 100;
@@ -37,6 +45,9 @@
         @include for-phone-only {
           font-size: 35px;
           width: 100%;
+        }
+        @include for-tablet-portrait-up{
+          font-size: 50px;
         }
       }
       p {
@@ -48,6 +59,9 @@
           width: 100%;
           margin-top: initial;
         }
+        @include for-tablet-portrait-up{
+          width: 43%;
+        }
       }
     }
   }
@@ -57,12 +71,15 @@
     position: absolute;
     top: 10%;
     left: 45%;
-    z-index: 1; 
+    z-index: 1;
     @include for-phone-only {
       width: 200px;
       height: 42%;
       top: 27%;
       left: 22%;
+    }
+    @include for-tablet-portrait-up{
+      width: 285px;
     }
     img {
       width: 100%;
@@ -102,6 +119,9 @@
   justify-content: space-around !important;
     top: 53em;
     mix-blend-mode: normal;
+  }
+  @include for-tablet-portrait-up{
+    top: 57em;
   }
   p{
     @include for-phone-only{

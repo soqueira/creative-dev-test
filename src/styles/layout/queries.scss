@@ -1,20 +1,10 @@
 @mixin for-phone-only {
-  @media (min-width: 320px) and (max-width: 420px) {
-    @content;
-  }
-}
-@mixin  for-phone-m {
-  @media(max-width: 376px){
-    @content;
-  }
-}
-@mixin  for-phone-l {
-  @media(max-width: 426px){
+  @media (min-width: 320px) and (max-width: 425px) {
     @content;
   }
 }
 @mixin for-tablet-portrait-up {
-  @media (min-width: 600px) and (max-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1024px) {
     @content;
   }
 }
