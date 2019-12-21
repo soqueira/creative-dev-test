@@ -58,6 +58,9 @@
         @include for-phone-only {
           width: 100%;
           margin-top: initial;
+          position: relative;
+          top: 20px;
+          text-align: center;
         }
         @include for-tablet-portrait-up{
           width: 43%;
@@ -74,7 +77,7 @@
     z-index: 1;
     @include for-phone-only {
       width: 200px;
-      height: 42%;
+      height: 50%;
       top: 27%;
       left: 22%;
     }
@@ -88,6 +91,9 @@
   }
   .s-image-1 {
     transform: rotate(2deg);
+    @include for-phone-only{
+      top: 23%;
+    }
   }
   .s-image-2 {
     transform: rotate(-2deg);
@@ -95,10 +101,10 @@
   .s-image-3 {
     transform: rotate(4deg);
     @include for-phone-only{
-    top: 27%;
+        top: 18%;
     left: 35%;
-    width: 50%;
-    height: 40%;
+    width: 192px;
+    height: 50%;
     }
   }
 }
@@ -112,6 +118,14 @@
   @include for-phone-only{
     top: 26em;
   }
+  @include for-desktop-up{
+    top: 20em;
+  }
+  h1{
+    @include for-phone-only{
+      width: 85% !important;
+    }
+  }
 }
 .s-text-3 {
   top: 53em;
@@ -121,11 +135,14 @@
     mix-blend-mode: normal;
   }
   @include for-tablet-portrait-up{
-    top: 57em;
+    top: 54em;
   }
-  p{
+  @include for-desktop-up{
+    top: 46em;
+  }
+  h1{
     @include for-phone-only{
-      margin-top: 25% !important;
+      width: 55% !important;
     }
   }
 }

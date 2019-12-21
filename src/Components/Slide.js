@@ -29,7 +29,7 @@ class slide extends React.Component {
           </p>
         </div>
         <div className={'s-image s-image-'+item.id}>
-          <img src={item.img} alt=""/>
+          <img src={item.img} alt={'IMG_' + index + 1}/>
         </div>
       </div>
     )
