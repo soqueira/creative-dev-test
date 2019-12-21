@@ -51,7 +51,7 @@ class fullPage extends React.Component {
         animateAnchor={true}
         recordHistory={true}
         // Scrolling
-        scrollingSpeed={1000}
+        scrollingSpeed={700}
         lazyLoading={true}
         scrollBar={true}
         easingcss3={"cubic-bezier(1, 0, 1, 1)"}

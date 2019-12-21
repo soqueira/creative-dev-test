@@ -8,18 +8,26 @@ class App extends Component {
     this.state = {
       anchors: ["s1", "s2", "s3"],
       colors: ["#ffa0a0", "#ffc74f", "#9cd6f0"],
-      currentView: null
+      currentView: null || "s1"
     };
   }
+  componentDidMount = () => {
+    window.addEventListener("scroll", () => {
+      this.getAnchor();
+    });
+    window.addEventListener("load", () => {
+      this.getAnchor();
+    });
+  };
   getAnchor = () => {
-    // get from body a fp-viewing-sN class every .3ms
+    // get the current view taking from body class
     const vpView = document.getElementsByTagName("body");
     const currentView = vpView["0"].className;
     const anchorView = currentView.split("-");
     this.setState({
-      // set same string as current anchor array
       currentView: anchorView[2]
     });
+    this.setNavBar(this.state.currentView);
   };
   setNavBar = n => {
     this.setLinkColor();
@@ -44,12 +52,12 @@ class App extends Component {
         svg: "triangle"
       }
     ];
-    // get parameter the current viewing
     let link = document.getElementsByClassName(n)[0];
     let svg;
+    // show svg when link is active
     boj.forEach(item => {
       if (link) {
-        // first className of link element
+        // get the first className of a link element
         let linkClassName = link.classList[0];
         svg = document.getElementsByClassName(item.svg)[0];
         if (linkClassName === item.num) {
@@ -60,9 +68,10 @@ class App extends Component {
         }
       }
     });
-    this.setOffset(n);
+    this.setSvgOffset(n);
   };
   setLinkColor = () => {
+    // set all links the color of displayed svg
     const colors = [
       { color: "#00347D", view: "s1" },
       { color: "#E93800", view: "s2" },
@@ -80,17 +89,24 @@ class App extends Component {
       }
     });
   };
-  // FIXME: fix the top bar for tablet large phones and tablet
-  setOffset(n) {
+  setSvgOffset(n) {
+    /*
+      make the sliding effect on navbar
+      getting the left and bottom position relative to the viewport
+    */
     if (n) {
       let el = document.getElementsByClassName(n)[0];
       let span = document.getElementsByTagName("span")[0];
-      // less than 495px wide from the el to left is mobile and the navbar is on top
-      console.log(el.getBoundingClientRect().left)
+      /*
+        less than 495px wide from the el to left is mobile
+        getting the left position
+      */
       if (el.getBoundingClientRect().left <= 333) {
+        // mobile
         span.style.left = el.getBoundingClientRect().left + "px";
         span.style.top = el.getBoundingClientRect().bottom + "px";
       } else {
+        // desktop
         span.style.left = "inherit";
         span.style.top = el.getBoundingClientRect().bottom + "px";
       }
@@ -103,12 +119,7 @@ class App extends Component {
           anchors={this.state.anchors}
           colors={this.state.colors}
         ></FullPage>
-        <NavBar
-          getAnchor={this.getAnchor}
-          anchors={this.state.anchors}
-          setNavBar={this.setNavBar}
-          currentView={this.state.currentView}
-        ></NavBar>
+        <NavBar anchors={this.state.anchors}></NavBar>
       </div>
     );
   }

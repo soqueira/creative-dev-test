@@ -1,12 +1,6 @@
 import React from "react";
 
-const navBar = ({getAnchor, anchors, setNavBar, currentView}) => {
-  // initialize the current anchor to positioning the svg
-  // and update location of the svg
-    setTimeout(() => {
-      getAnchor()
-      setNavBar(currentView)
-    }, 200);
+const navBar = ({anchors}) => {
     let itens;
     itens = anchors.map((view, index) => {
         return (
