@@ -19,6 +19,9 @@ nav {
   @include for-small-tablet{
     width: 15%;
   }
+  @include for-medium-tablet{
+    width: 20%;
+  }
 
   ul {
     @include center;
@@ -71,6 +74,9 @@ nav {
       height: 170px;
       transform: translate(0%, -90%);
     }
+    @include for-medium-tablet{
+      width: 90px;
+    }
     svg {
       visibility: hidden;
       opacity: 0;
@@ -86,6 +92,9 @@ nav {
       @include for-4k-up{
         width: 170px;
         height: 170px;
+      }
+      @include for-medium-tablet{
+        width: initial;
       }
     }
     .svg-state-active {
@@ -106,6 +115,9 @@ nav {
       @include for-4k-up{
         right: 6px;
         top: 2px;
+      }
+      @include for-medium-tablet{
+        right: -7px;
       }
     }
   }

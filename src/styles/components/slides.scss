@@ -108,7 +108,7 @@
     .container__text-1 {
       top: 0;
       @include for-phone-only {
-        top: 2em;
+        top: 0em;
       }
       @include for-iphone-6-8-plus {
         top: 1em;
@@ -154,7 +154,7 @@
       left: 45%;
       z-index: 1;
       @include for-phone-only {
-        width: 75%;
+        width: 235px;
         height: 50%;
         top: 27%;
         left: 22%;
@@ -165,8 +165,8 @@
         left: 42%;
       }
       @include for-small-tablet {
-        width: 59%;
-        height: 50%;
+        width: 255px;
+        height: 57%;
         top: 13%;
         left: 25%;
       }

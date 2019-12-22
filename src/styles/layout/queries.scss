@@ -8,6 +8,11 @@
     @content;
   }
 }
+@mixin for-medium-tablet {
+  @media(min-width: 556px) and (max-width: 768px){
+    @content;
+  }
+}
 @mixin for-tablet-portrait-up {
   @media (min-width: 768px) and (max-width: 1024px) {
     @content;
