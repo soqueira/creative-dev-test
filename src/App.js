@@ -14,32 +14,32 @@ class App extends Component {
   componentDidMount = () => {
     window.addEventListener("scroll", () => {
       this.getAnchor();
-      this.parallax();
+      this.parallaxEffect();
     });
     window.addEventListener("load", () => {
       this.getAnchor();
     });
   };
-  parallax = () => {
-    let parallaxText = document.querySelectorAll('.s-text');
-    parallaxText.forEach(item => {  
+  parallaxEffect = () => {
+    let parallaxText = document.querySelectorAll(".s-text");
+    parallaxText.forEach(item => {
       item.style.transform = `translate(0px, ${window.pageYOffset / 3}px)`;
     });
   };
   getAnchor = () => {
-    // get the current view taking from body class
+    // get the current view taking from the body class
     const vpView = document.getElementsByTagName("body");
     const currentView = vpView["0"].className;
     const anchorView = currentView.split("-");
     this.setState({
       currentView: anchorView[2]
     });
-    this.setNavBar(this.state.currentView);
+    this.displaySvg(this.state.currentView);
   };
-  setNavBar = n => {
-    this.setLinkColor();
+  displaySvg = n => {
+    this.setColorsToLinks();
 
-    const boj = [
+    const svgStyles = [
       {
         id: 1,
         num: "s1",
@@ -61,8 +61,8 @@ class App extends Component {
     ];
     let link = document.getElementsByClassName(n)[0];
     let svg;
-    // show svg when link is active
-    boj.forEach(item => {
+    // display svg on current link
+    svgStyles.forEach(item => {
       if (link) {
         // get the first className of a link element
         let linkClassName = link.classList[0];
@@ -77,7 +77,7 @@ class App extends Component {
     });
     this.setSvgOffset(n);
   };
-  setLinkColor = () => {
+  setColorsToLinks = () => {
     // set all links the color of displayed svg
     const colors = [
       { color: "#00347D", view: "s1" },
@@ -90,7 +90,9 @@ class App extends Component {
       let link = document.querySelectorAll(".link");
       if (item.view === cView) {
         linkColor = item.color;
-        for (let i = 0; i < link.length; i++) {
+        let i,
+          l = link.length;
+        for (i = 0; i < l; i++) {
           link[i].style.color = linkColor;
         }
       }
@@ -122,11 +124,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <FullPage
-          anchors={this.state.anchors}
-          colors={this.state.colors}
-        ></FullPage>
-        <NavBar anchors={this.state.anchors}></NavBar>
+        <React.StrictMode>
+          <FullPage
+            anchors={this.state.anchors}
+            colors={this.state.colors}
+          ></FullPage>
+          <NavBar anchors={this.state.anchors}></NavBar>
+        </React.StrictMode>
       </div>
     );
   }
