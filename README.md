@@ -1,8 +1,6 @@
 
 # Developer Creative Challenge
 
-In the project directory, you can 
-##
 ## Installing
 ### `yarn`
 
