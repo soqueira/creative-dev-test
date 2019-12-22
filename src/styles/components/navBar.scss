@@ -16,6 +16,9 @@ nav {
     width: 100%;
     height: 10%;
   }
+  @include for-small-tablet{
+    width: 15%;
+  }
 
   ul {
     @include center;
@@ -42,6 +45,9 @@ nav {
         position: relative;
         transition-delay: 0.3s;
         transition: 0.3s ease-in;
+        @include for-4k-up{
+          font-size: 50px;
+        }
       }
     }
   }
@@ -57,27 +63,49 @@ nav {
     @include for-phone-only{
       width: 90px;
     }
+    @include for-small-tablet{
+      width: 75px;
+    }
+    @include for-4k-up{
+      width: 170px;
+      height: 170px;
+      transform: translate(0%, -90%);
+    }
     svg {
       visibility: hidden;
       opacity: 0;
       position: absolute;
-      transform: rotate(0deg) scale(.3);
-      transition: 0.5s ease .1s;
+      transform: scale(.6);
+      transition: 0.2s ease .3s;
       @include for-phone-only {
         width: 55px;
+      }
+      @include for-small-tablet{
+        width: 70px;
+      }
+      @include for-4k-up{
+        width: 170px;
+        height: 170px;
       }
     }
     .svg-active {
       visibility: visible;
       opacity: 1;
-      transform: rotate(360deg) scale(1);
+      transform: scale(1);
     }
     .triangle {
       right: -2px;
       top: -12px;
       @include for-phone-only {
-        right: 14px;
+        right: 19px;
         top: -10px;
+      }
+      @include for-small-tablet{
+        right: 3px;
+      }
+      @include for-4k-up{
+        right: 6px;
+        top: 2px;
       }
     }
   }

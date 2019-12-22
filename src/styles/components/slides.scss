@@ -12,30 +12,48 @@
     align-items: flex-end;
     width: 100%;
   }
-  @include for-tablet-portrait-up{
+  @include for-tablet-portrait-up {
     width: 90%;
   }
   .s-container {
     width: 100%;
     margin-left: 10%;
     @include for-phone-only {
-      height: 75%;
+      height: 80%;
       margin: 0% 10% 0% 10%;
+    }
+    @include for-small-tablet {
+      height: 100%;
+    }
+    @include for-iphone-x {
+      height: 90%;
+    }
+    @include for-tablet-portrait-up{
+      margin-left: 5%;
     }
     .s-text {
       width: 100%;
       position: relative;
       z-index: 2;
-      @include for-phone-only{
+      @include for-phone-only {
         height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
       }
-      @include for-tablet-portrait-up{
+      @include for-tablet-portrait-up {
         display: flex;
         flex-direction: column;
         justify-content: center;
+      }
+      @include for-small-tablet {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      @include for-iphone-x {
+        justify-content: space-around;
       }
       h1 {
         font-size: 90px;
@@ -46,8 +64,16 @@
           font-size: 35px;
           width: 100%;
         }
-        @include for-tablet-portrait-up{
+        @include for-tablet-portrait-up {
           font-size: 50px;
+        }
+        @include for-small-tablet {
+          font-size: 45px;
+          width: 70%;
+        }
+        @include for-4k-up {
+          font-size: 130px;
+          width: 65%;
         }
       }
       p {
@@ -62,8 +88,20 @@
           top: 20px;
           text-align: center;
         }
-        @include for-tablet-portrait-up{
+        @include for-tablet-portrait-up {
           width: 43%;
+        }
+        @include for-4k-up {
+          font-size: 2em;
+        }
+        @include for-iphone-6-8 {
+          top: -21px;
+        }
+        @include for-iphone-6-8-plus {
+          top: -50px;
+        }
+        @include for-iphone-x {
+          top: 0px;
         }
       }
     }
@@ -76,13 +114,21 @@
     left: 45%;
     z-index: 1;
     @include for-phone-only {
-      width: 200px;
+      width: 75%;
       height: 50%;
       top: 27%;
       left: 22%;
     }
-    @include for-tablet-portrait-up{
-      width: 285px;
+    @include for-tablet-portrait-up {
+      width: 40%;
+      height: 83%;
+      left: 42%;
+    }
+    @include for-small-tablet {
+    width: 59%;
+    height: 50%;
+    top: 13%;
+    left: 25%;
     }
     img {
       width: 100%;
@@ -91,7 +137,7 @@
   }
   .s-image-1 {
     transform: rotate(2deg);
-    @include for-phone-only{
+    @include for-phone-only {
       top: 23%;
     }
   }
@@ -100,48 +146,53 @@
   }
   .s-image-3 {
     transform: rotate(4deg);
-    @include for-phone-only{
-        top: 18%;
-    left: 35%;
-    width: 192px;
-    height: 50%;
+    @include for-phone-only {
+      top: 18%;
+      left: 18%;
+      height: 50%;
+    }
+    @include for-small-tablet {
+      top: 13%;
     }
   }
 }
-.s-text-1{
-  @include for-phone-only{
-    top: -2em;
+.s-text-1 {
+  top: 0;
+  @include for-phone-only {
+    top: 2em;
+  }
+  @include for-iphone-6-8-plus {
+    top: 1em;
   }
 }
 .s-text-2 {
-  top: 27em;
-  @include for-phone-only{
-    top: 26em;
-  }
-  @include for-desktop-up{
-    top: 20em;
-  }
-  h1{
-    @include for-phone-only{
+  top: -227px;
+  h1 {
+    @include for-phone-only {
       width: 85% !important;
     }
   }
+  @include for-4k-up {
+    top: -335px;
+  }
 }
 .s-text-3 {
-  top: 53em;
-  @include for-phone-only{
-  justify-content: space-around !important;
-    top: 53em;
+  top: -385px;
+  @include for-phone-only {
+    justify-content: space-around !important;
     mix-blend-mode: normal;
   }
-  @include for-tablet-portrait-up{
-    top: 54em;
+  @include for-4k-up {
+    top: -775px;
   }
-  @include for-desktop-up{
-    top: 46em;
+  @include for-iphone-6-8-plus {
+    top: -440px;
   }
-  h1{
-    @include for-phone-only{
+  @include for-iphone-x {
+    top: -505px;
+  }
+  h1 {
+    @include for-phone-only {
       width: 55% !important;
     }
   }

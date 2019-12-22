@@ -2,9 +2,9 @@ import React from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Slide from "./Slide";
 
-const slides = [
-  {
-    slide1: [
+class fullPage extends React.Component {
+  state = {
+      slide1: [
       {
         h1: "Creative people live longer.",
         p:
@@ -34,9 +34,7 @@ const slides = [
         id: 3,
       }
     ]
-  }
-];
-class fullPage extends React.Component {
+  };
   render() {
     return (
       <ReactFullpage
@@ -59,13 +57,13 @@ class fullPage extends React.Component {
           return (
             <ReactFullpage.Wrapper>
               <section className="section">
-                <Slide slides={slides[0].slide1}></Slide>
+                <Slide slides={this.state.slide1}></Slide>
               </section>
               <section className="section">
-                <Slide slides={slides[0].slide2}></Slide>
+                <Slide slides={this.state.slide2}></Slide>
               </section>
               <section className="section">
-                <Slide slides={slides[0].slide3}></Slide>
+                <Slide slides={this.state.slide3}></Slide>
               </section>
             </ReactFullpage.Wrapper>
           );

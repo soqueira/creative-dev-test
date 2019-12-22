@@ -14,9 +14,16 @@ class App extends Component {
   componentDidMount = () => {
     window.addEventListener("scroll", () => {
       this.getAnchor();
+      this.parallax();
     });
     window.addEventListener("load", () => {
       this.getAnchor();
+    });
+  };
+  parallax = () => {
+    let parallaxText = document.querySelectorAll('.s-text');
+    parallaxText.forEach(item => {  
+      item.style.transform = `translate(0px, ${window.pageYOffset / 3}px)`;
     });
   };
   getAnchor = () => {
