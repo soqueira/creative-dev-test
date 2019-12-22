@@ -21,7 +21,7 @@ class App extends Component {
     });
   };
   parallaxEffect = () => {
-    let parallaxText = document.querySelectorAll(".s-text");
+    let parallaxText = document.querySelectorAll(".container__text");
     parallaxText.forEach(item => {
       item.style.transform = `translate(0px, ${window.pageYOffset / 3}px)`;
     });
@@ -69,9 +69,9 @@ class App extends Component {
         svg = document.getElementsByClassName(item.svg)[0];
         if (linkClassName === item.num) {
           link.style.color = item.style.color;
-          svg.classList.add("svg-active");
+          svg.classList.add("svg-state-active");
         } else {
-          svg.classList.remove("svg-active");
+          svg.classList.remove("svg-state-active");
         }
       }
     });

@@ -6,13 +6,13 @@ class slide extends React.Component {
   const slides = this.props.slides.map((item, index) => {
     return (
       <div key={index} className="s-container">
-        <div style={{top: item.top}} className={'s-text s-text-' + item.id}>
+        <div style={{top: item.top}} className={'container__text container__text-' + item.id}>
           <h1 style={{color: item.color}}>{item.h1}</h1>
           <p style={{color: item.color}}>
             <strong>{item.p}</strong>
           </p>
         </div>
-        <div className={'s-image s-image-'+item.id}>
+        <div className={'container__image container__image__'+item.id}>
           <img src={item.img} loading='lazy' alt={'IMG_' + index + 1}/>
         </div>
       </div>
