@@ -23,7 +23,8 @@ class App extends Component {
   parallaxEffect = () => {
     let parallaxText = document.querySelectorAll(".container__text");
     parallaxText.forEach(item => {
-      item.style.transform = `translate(0px, ${window.pageYOffset / 3}px)`;
+      const offset = `translate(0px, ${window.pageYOffset / 3}px)`;
+      item.style.transform = offset;
     });
   };
   getAnchor = () => {
@@ -90,10 +91,8 @@ class App extends Component {
       let link = document.querySelectorAll(".link");
       if (item.view === cView) {
         linkColor = item.color;
-        let i,
-          l = link.length;
-        for (i = 0; i < l; i++) {
-          link[i].style.color = linkColor;
+        for (const links of link) {
+          links.style.color = linkColor;
         }
       }
     });
@@ -104,7 +103,7 @@ class App extends Component {
       getting the left and bottom position relative to the viewport
     */
     if (n) {
-      let el = document.getElementsByClassName(n)[0];
+      const el = document.getElementsByClassName(n)[0];
       let span = document.getElementsByTagName("span")[0];
       /*
         less than 495px wide from the el to left is mobile
