@@ -108,7 +108,7 @@
     .container__text-1 {
       top: 0;
       @include for-phone-only {
-        top: 0em;
+        top: -1em;
       }
       @include for-iphone-6-8-plus {
         top: 1em;
@@ -121,15 +121,19 @@
           width: 85% !important;
         }
       }
+      @include for-phone-only{
+        top: -252px;
+      }
       @include for-4k-up {
         top: -335px;
       }
     }
     .container__text-3 {
-      top: -385px;
+      top: -520px;
       @include for-phone-only {
         justify-content: space-around !important;
         mix-blend-mode: normal;
+        top: -445px;
       }
       @include for-4k-up {
         top: -775px;
