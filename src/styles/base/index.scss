@@ -6,3 +6,9 @@
 @import '../settings/font-face.scss';
 @import '../settings/colors.scss';
 @import '../layout/queries.scss';
+
+#root{
+  opacity: 0;
+  visibility: hidden;
+  transition: .7s;
+}

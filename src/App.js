@@ -22,9 +22,9 @@ class App extends Component {
   };
   parallaxEffect = () => {
     let parallaxText = document.querySelectorAll(".container__text");
-    parallaxText.forEach(item => {
+    parallaxText.forEach(parallax => {
       const offset = `translate(0px, ${window.pageYOffset / 3}px)`;
-      item.style.transform = offset;
+      parallax.style.transform = offset;
     });
   };
   getAnchor = () => {
@@ -37,7 +37,7 @@ class App extends Component {
     });
     this.displaySvg(this.state.currentView);
   };
-  displaySvg = n => {
+  displaySvg = view => {
     this.setColorsToLinks();
 
     const svgStyles = [
@@ -60,50 +60,48 @@ class App extends Component {
         svg: "triangle"
       }
     ];
-    let link = document.getElementsByClassName(n)[0];
+    let link = document.getElementsByClassName(view)[0];
     let svg;
     // display svg on current link
-    svgStyles.forEach(item => {
+    svgStyles.forEach(objStyle => {
       if (link) {
         // get the first className of a link element
         let linkClassName = link.classList[0];
-        svg = document.getElementsByClassName(item.svg)[0];
-        if (linkClassName === item.num) {
-          link.style.color = item.style.color;
+        svg = document.getElementsByClassName(objStyle.svg)[0];
+        if (linkClassName === objStyle.num) {
+          link.style.color = objStyle.style.color;
           svg.classList.add("svg-state-active");
         } else {
           svg.classList.remove("svg-state-active");
         }
       }
     });
-    this.setSvgOffset(n);
+    this.setSvgOffset(view);
   };
   setColorsToLinks = () => {
     // set all links the color of displayed svg
     const colors = [
-      { color: "#00347D", view: "s1" },
-      { color: "#E93800", view: "s2" },
-      { color: "#8A1935", view: "s3" }
+      { svgColor: "#00347D", view: "s1" },
+      { svgColor: "#E93800", view: "s2" },
+      { svgColor: "#8A1935", view: "s3" }
     ];
-    let linkColor;
-    let cView = this.state.currentView;
-    colors.forEach(item => {
+    let currentView = this.state.currentView;
+    colors.forEach(color => {
       let link = document.querySelectorAll(".link");
-      if (item.view === cView) {
-        linkColor = item.color;
+      if (color.view === currentView) {
         for (const links of link) {
-          links.style.color = linkColor;
+          links.style.color = color.svgColor;
         }
       }
     });
   };
-  setSvgOffset(n) {
+  setSvgOffset = view => {
     /*
       make the sliding effect on navbar
       getting the left and bottom position relative to the viewport
     */
-    if (n) {
-      const el = document.getElementsByClassName(n)[0];
+    if (view) {
+      const el = document.getElementsByClassName(view)[0];
       let span = document.getElementsByTagName("span")[0];
       /*
         less than 495px wide from the el to left is mobile
@@ -119,7 +117,7 @@ class App extends Component {
         span.style.top = el.getBoundingClientRect().bottom + "px";
       }
     }
-  }
+  };
   render() {
     return (
       <div className="App">
